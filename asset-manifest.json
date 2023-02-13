@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/alcohol-permille-calculator/static/css/main.e6c13ad2.css",
+    "main.js": "/alcohol-permille-calculator/static/js/main.fd11b12e.js",
+    "static/js/787.c03a49aa.chunk.js": "/alcohol-permille-calculator/static/js/787.c03a49aa.chunk.js",
+    "index.html": "/alcohol-permille-calculator/index.html",
+    "main.e6c13ad2.css.map": "/alcohol-permille-calculator/static/css/main.e6c13ad2.css.map",
+    "main.fd11b12e.js.map": "/alcohol-permille-calculator/static/js/main.fd11b12e.js.map",
+    "787.c03a49aa.chunk.js.map": "/alcohol-permille-calculator/static/js/787.c03a49aa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.fd11b12e.js"
+  ]
+}
