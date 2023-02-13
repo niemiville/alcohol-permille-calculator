@@ -1,12 +1,12 @@
-import './App.css';
-import { PermilleForm} from './components/PermilleForm';
+import { PermilleForm } from './components/PermilleForm';
+import Container from '@material-ui/core/Container';
 
 function App() {
   
   return (
-    <div>
+    <Container>
       <PermilleForm />
-    </div>
+    </Container>
   );
 }
 

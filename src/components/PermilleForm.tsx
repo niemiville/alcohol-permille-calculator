@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 interface FormData {
   milliliters: number;
@@ -33,69 +40,71 @@ const PermilleForm: React.FC = () => {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     let sexMultiplier = maleMultiplier;
-    if (formData.sex === 'female'){
-        sexMultiplier = femaleMultiplier;
+    if (formData.sex === 'female') {
+      sexMultiplier = femaleMultiplier;
     }
     setPermilles((densityOfEthanol * (formData.milliliters * formData.percent / 100)) / (formData.kilograms * 1000 * sexMultiplier) * toPermille);
     console.log(permilles);
   };
 
   return (
-    <>
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="milliliters">Amount of alcohol drank in milliliters: </label>
-      <input
-        type="number"
-        id="milliliters"
-        name="milliliters"
-        value={formData.milliliters}
-        onChange={handleInputChange}
-      />
-      <br />
-      <label htmlFor="percent">Alcohol strenght in percents: </label>
-      <input
-        type="number"
-        id="percent"
-        name="percent"
-        value={formData.percent}
-        onChange={handleInputChange}
-      />
-      <br />
-      <label htmlFor="kilograms">Weight of person in kilograms: </label>
-      <input
-        type="number"
-        id="kilograms"
-        name="kilograms"
-        value={formData.kilograms}
-        onChange={handleInputChange}
-      />
-      <br />
-      <label>
-        <input
-          type="radio"
-          name="sex"
-          value='male'
-          checked={formData.sex === 'male'}
-          onChange={handleRadioChange}
+    <Grid container alignItems="center" justifyContent="center">
+      <form onSubmit={handleSubmit}>
+        <Typography variant="h5" gutterBottom>
+          BAC Calculator
+        </Typography>
+        <TextField
+          label="Amount drunk ml"
+          type="number"
+          id="milliliters"
+          name="milliliters"
+          value={formData.milliliters}
+          onChange={handleInputChange}
         />
-        Male
-      </label>
-      <br />
-      <label>
-        <input
-          type="radio"
-          name="sex"
-          value='female'
-          checked={formData.sex === 'female'}
-          onChange={handleRadioChange}
+        <br />
+        <TextField
+          label="Alcohol %"
+          type="number"
+          id="percent"
+          name="percent"
+          value={formData.percent}
+          onChange={handleInputChange}
         />
-        Female
-      </label>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
-    <p>Permilles: {permilles.toFixed(2)}</p>
-    </>
+        <br />
+        <TextField
+          label="Weight kg"
+          type="number"
+          id="kilograms"
+          name="kilograms"
+          value={formData.kilograms}
+          onChange={handleInputChange}
+        />
+        <br />
+        <RadioGroup
+          aria-label="sex"
+          name="sex"
+          value={formData.sex}
+          onChange={handleRadioChange}
+        >
+          <FormControlLabel
+            value="male"
+            control={<Radio />}
+            label="Male"
+          />
+          <FormControlLabel
+            value="female"
+            control={<Radio />}
+            label="Female"
+          />
+        </RadioGroup>
+        <br />
+        <Typography variant="body1" gutterBottom>
+          Permilles: {permilles.toFixed(2)}
+        </Typography>
+        <br />
+        <Button variant="contained" color="primary" type="submit">Calculate</Button>
+      </form>
+    </Grid>
   );
 };
 
