@@ -1,6 +1,6 @@
 # Blood Alcohol Concentration in Permilles Calculator  
 
-Calculates how many permilles there is alcohol in person blood.  
+Calculates how many permilles there is alcohol in a person's blood.  
 
 [Development page](https://niemiville.github.io/alcohol-permille-calculator/)  
 
